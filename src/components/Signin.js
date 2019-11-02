@@ -35,11 +35,14 @@ const SignIn = (props) => {
 
             if(res.status == 200) {
                 console.log(res.data);
+                alert('Code: 200 Logged in successfully')
             } else {
+                alert(`Code: ${res.status} Some error occurred`);
                 console.log(res);
             }
 
         } catch(e) {
+            alert('Some error occurred');
             console.log(e);
             console.log(e.response);
 
