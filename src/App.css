@@ -1,22 +1,113 @@
-.App {
-  text-align: center;
+body{
+  font-family: 'Rubik', sans-serif;
+}
+.container-fluid {
+   position: relative;
+}
+.full-height{ 
+   height: 100vh;
+}
+.image-pan{
+   background-image: url('./assets/img/Image.png');
+}
+.data-pan{
+   background: #fff;
 }
 
-.App-logo {
-  height: 40vmin;
+.data-pan
+{
+position: absolute;
+left:0 ;
+-webkit-transition: left 1s; /* Safari prior 6.1 */
+ transition: left 1s;
+}
+.signup .data-pan{
+  position: absolute;
+   left : 50% !important;
+  -webkit-transition: left 1s; /* Safari prior 6.1 */
+  transition: left 1s;
+  
+}
+.image-pan{
+  position: absolute;
+  right:0;
+  -webkit-transition: right 1s; /* Safari prior 6.1 */
+  transition: right 1s;
+}
+.signup .image-pan{
+  position: absolute;
+  right:50% !important;
+  -webkit-transition: right 1s; /* Safari prior 6.1 */
+  transition: right 1s;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.logo{
+  background-image: url('./assets//img//logo.png');
+  width: 102px;
+  height: 28px;
+  display: block;
+  margin-left:50px;
+  margin-top:20px
+}
+.signin-content,.signup-content{
+ position: absolute;
+ left: 50%;
+ top: 50%;
+ -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  display: none;
+  -webkit-transition: display 1s; /* Safari prior 6.1 */
+  transition: display  1s;
+}
+.show-log-pane{
+  display: block;
+  -webkit-transition: display 1s; /* Safari prior 6.1 */
+  transition: display  1s;
+}
+h3{
+  font-weight: 300;
+  color: #2E384D;
+  font-size:32px
+}
+p{
+  color: #8798AD;
+  font-weight: 100;
+  font-size:15px
 }
 
-.App-link {
-  color: #09d3ac;
+.form-control{
+  height: 41px;
+  border-radius: 5px;
+  background:  #F9FAFF;
+  border:1px solid #E0E7FF;
+}
+
+label{
+  
+font-weight: 400;
+color:#B0BAC9;
+font-size: 12px
+}
+
+.btn-primary{
+  width: 100%;
+  height: 50px;
+  background: #2E5BFF;
+  border:none;
+  font-size:15px;
+  border-radius: 4px
+}
+.btn-primary:hover{
+  border:none;
+  background:#2E5BF5;
+}
+.pan-switcher{
+  font-size:15px;
+  color:#B0BAC9;
+
+}
+.pan-switcher button{
+  background: none;
+  color:#2E5BFF;
+  border:none
 }
