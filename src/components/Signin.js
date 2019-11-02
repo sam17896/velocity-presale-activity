@@ -16,11 +16,13 @@ const SignIn = (props) => {
         event.preventDefault();
         const { email, password } = state;
         if(email == '' || email == undefined) {
-
+            alert('Email is required');
+            return;
         } 
 
         if (password == '' || password == undefined) {
-
+            alert('Password is required');
+            return
         }
 
         const body = {

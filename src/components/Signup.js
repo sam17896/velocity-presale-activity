@@ -1,6 +1,64 @@
-import React from 'react';
+import React, {useState} from 'react';
+import * as api from '../network/api';
 
 const SignUp = (props) => {
+    const [state, setState] = useState({
+        firstname: '',
+        lastname: '',
+        email: '',
+        password: ''
+    })
+
+    const handleChange = (key , event) => {
+        setState({...state, [key]: event.target.value})
+    }
+
+    const Register = async (event) => {
+        event.preventDefault();
+        const { email, password, firstname, lastname } = state;
+        if(email == '' || email == undefined) {
+            alert('Email is required');
+            return;
+        } 
+
+        if(firstname == '' || firstname == undefined) {
+            alert('FistName is required');
+            return;
+        } 
+
+        if(lastname == '' || lastname == undefined) {
+            alert('LastName is required');
+            return;
+        } 
+
+        if (password == '' || password == undefined) {
+            alert('Password is required');
+            return
+        }
+
+        const body = {
+            firstname,
+            lastname,
+            email,
+            password
+        }
+
+        try {
+            const res = await api.Register(body);
+
+            if(res.status == 200) {
+                console.log(res.data);
+            } else {
+                console.log(res);
+            }
+
+        } catch(e) {
+            console.log(e);
+            console.log(e.response);
+
+        }
+
+    }
     return(
         <div className={`signup-content col-md-6 ${props.className == '' ? '': 'show-log-pane'}`}>
               <h3>Weclome to Velocity</h3>
@@ -9,6 +67,8 @@ const SignUp = (props) => {
                 <div className="form-group">
                   <label htmlFor="exampleInputEmail1">First Name</label>
                   <input
+                    value={state.firstname}
+                    onChange={(event) => handleChange('firstname', event)}
                     type="firstname"
                     className="form-control"
                     id="exampleInputEmail1"
@@ -19,6 +79,9 @@ const SignUp = (props) => {
                 <div className="form-group">
                   <label htmlFor="exampleInputEmail1">last Name</label>
                   <input
+                    value={state.lastname}
+                    onChange={(event) => handleChange('lastname', event)}
+                    
                     type="lastname"
                     className="form-control"
                     id="exampleInputEmail1"
@@ -29,6 +92,9 @@ const SignUp = (props) => {
                 <div className="form-group">
                   <label htmlFor="exampleInputEmail1">Email address</label>
                   <input
+                    value={state.email}
+                    onChange={(event) => handleChange('email', event)}
+                    
                     type="email"
                     className="form-control"
                     id="exampleInputEmail1"
@@ -39,6 +105,9 @@ const SignUp = (props) => {
                 <div className="form-group">
                   <label htmlFor="exampleInputPassword1">Password</label>
                   <input
+                    value={state.password}
+                    onChange={(event) => handleChange('password', event)}
+                    
                     type="password"
                     className="form-control"
                     id="exampleInputPassword1"
@@ -46,7 +115,7 @@ const SignUp = (props) => {
                   />
                 </div>
 
-                <button type="submit" className="btn btn-primary">
+                <button onClick={(event) => Register(event)} className="btn btn-primary">
                   Register
                 </button>
               </form>
