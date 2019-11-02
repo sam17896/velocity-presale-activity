@@ -8,9 +8,11 @@ body{
    height: 100vh;
 }
 .image-pan{
+  min-width: 400px;
    background-image: url('./assets/img/Image.png');
 }
 .data-pan{
+  min-width: 400px;
    background: #fff;
 }
 
@@ -110,4 +112,42 @@ font-size: 12px
   background: none;
   color:#2E5BFF;
   border:none
+}
+
+.pan-switcher{
+  margin-top:20px
+}
+
+@media only screen and (max-width: 600px) {
+  
+  .data-pan
+  {
+  position: absolute;
+  left:0 ;
+  -webkit-transition: left 1s; /* Safari prior 6.1 */
+   transition: left 1s;
+  }
+  .signup .data-pan{
+    position: absolute;
+    left:0 !important;
+    -webkit-transition: left 1s; /* Safari prior 6.1 */
+     transition: left 1s;
+    
+  }
+  .image-pan{
+    position: absolute;
+    right:0;
+    display: none;
+  }
+  .signup .image-pan{
+    position: absolute;
+    right:0;
+    display: none;
+  }
+  
+  .data-pan{
+    min-width: 100%;
+     background: #fff;
+  }
+
 }
