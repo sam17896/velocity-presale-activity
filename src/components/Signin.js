@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import * as api from '../network/api';
+import { validateEmail } from '../shared/utils';
 
 const SignIn = (props) => {
 
@@ -8,21 +9,46 @@ const SignIn = (props) => {
         password: ''
     })
 
+    const [error, setError] = useState({
+      email: null,
+      password: null
+    })
+
     const handleChange = (key , event) => {
         setState({...state, [key]: event.target.value})
     }
 
     const Login = async (event) => {
         event.preventDefault();
+        setError({
+          email: null,
+          password: null
+        })
         const { email, password } = state;
+        let errors = {};
+        let error_ = false;
         if(email == '' || email == undefined) {
-            alert('Email is required');
-            return;
+          errors.email = 'Email is required';  
+          error_ = true;          
+        } 
+
+        if(!validateEmail(email)) {
+          errors.email = 'Email is not valid';
+          error_ = true;          
         } 
 
         if (password == '' || password == undefined) {
-            alert('Password is required');
-            return
+            errors.password = 'Password is required';
+            error_ = true;         
+        }
+
+        if(error_) {
+          setError({
+            email: errors.email,
+            password: errors.password
+          });
+
+          return;
         }
 
         const body = {
@@ -66,6 +92,7 @@ const SignIn = (props) => {
               aria-describedby="emailHelp"
               placeholder=""
             />
+           {error.email && <p className="error">{error.email}</p>}
           </div>
           <div className="form-group">
             <label htmlFor="exampleInputPassword1">Password</label>
@@ -77,6 +104,7 @@ const SignIn = (props) => {
               id="exampleInputPassword1"
               placeholder=" "
             />
+             {error.password && <p className="error">{error.password}</p>}
           </div>
 
           <button onClick={(event) => Login(event)} className="btn btn-primary">
