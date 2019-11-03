@@ -9,7 +9,11 @@ body{
 }
 .image-pan{
   min-width: 400px;
-   background-image: url('./assets/img/Image.png');
+   background-image: url('./assets/img/charlotte_2.jpg');
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
 }
 .data-pan{
   min-width: 400px;
@@ -48,7 +52,7 @@ left:0 ;
   width: 102px;
   height: 28px;
   display: block;
-  margin-left:50px;
+   margin: auto;
   margin-top:20px
 }
 .signin-content,.signup-content{
