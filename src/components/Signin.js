@@ -62,13 +62,12 @@ const SignIn = (props) => {
             if(res.status == 200) {
                 console.log(res.data);
                 alert('Code: 200 Logged in successfully')
+
             } else {
-                alert(`Code: ${res.status} Some error occurred`);
                 console.log(res);
             }
 
         } catch(e) {
-            alert('Some error occurred');
             console.log(e);
             console.log(e.response);
 
@@ -87,7 +86,7 @@ const SignIn = (props) => {
               value={state.email}
               onChange={(event) => handleChange('email', event)}
               type="email"
-              className="form-control"
+              className={`form-control ${error.email ? 'error': ''}`}
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder=""
@@ -99,7 +98,7 @@ const SignIn = (props) => {
             <input
               value={state.password}
               onChange={(event) => handleChange('password', event)}
-              type="password"
+              type={`form-control ${error.password ? 'error': ''}`}
               className="form-control"
               id="exampleInputPassword1"
               placeholder=" "

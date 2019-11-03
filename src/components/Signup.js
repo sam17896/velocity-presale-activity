@@ -85,13 +85,12 @@ const SignUp = (props) => {
             if(res.status == 200) {
                 console.log(res.data);
                 alert('Code: 200 Logged in successfully')
+
             } else {
-                alert(`Code: ${res.status} Some error occurred`);
                 console.log(res);
             }
 
         } catch(e) {
-            alert('Some error occurred');
             console.log(e);
             console.log(e.response);
 
@@ -109,7 +108,7 @@ const SignUp = (props) => {
                     value={state.firstname}
                     onChange={(event) => handleChange('firstname', event)}
                     type="firstname"
-                    className="form-control"
+                    className={`form-control ${error.firstname ? 'error': ''}`}
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder=""
@@ -123,7 +122,7 @@ const SignUp = (props) => {
                     onChange={(event) => handleChange('lastname', event)}
                     
                     type="lastname"
-                    className="form-control"
+                    className={`form-control ${error.lastname ? 'error': ''}`}
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder=""
@@ -138,7 +137,7 @@ const SignUp = (props) => {
                     onChange={(event) => handleChange('email', event)}
                     
                     type="email"
-                    className="form-control"
+                    className={`form-control ${error.email ? 'error': ''}`}
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder=""
@@ -153,7 +152,7 @@ const SignUp = (props) => {
                     onChange={(event) => handleChange('password', event)}
                     
                     type="password"
-                    className="form-control"
+                    className={`form-control ${error.password ? 'error': ''}`}
                     id="exampleInputPassword1"
                     placeholder=" "
                   />
