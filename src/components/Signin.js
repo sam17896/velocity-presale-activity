@@ -86,7 +86,7 @@ const SignIn = (props) => {
               value={state.email}
               onChange={(event) => handleChange('email', event)}
               type="email"
-              className={`form-control ${error.email ? 'error': ''}`}
+              className={`form-control ${error.email ? 'dirty-input': ''}`}
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder=""
@@ -98,7 +98,7 @@ const SignIn = (props) => {
             <input
               value={state.password}
               onChange={(event) => handleChange('password', event)}
-              type={`form-control ${error.password ? 'error': ''}`}
+              type={`form-control ${error.password ? 'dirty-input': ''}`}
               className="form-control"
               id="exampleInputPassword1"
               placeholder=" "

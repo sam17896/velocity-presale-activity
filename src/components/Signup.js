@@ -55,7 +55,7 @@ const SignUp = (props) => {
             errors.password = 'Password is required';
             error_ = true;
         } else if(password.length < 8 || !validatePassword(password)) {
-            errors.password = 'Password is not valid. Password must be atleast 8 character and must contain atleast one lower case, one upper case and one special character';
+            errors.password = 'Password must be atleast 8 character and must contain a lower case a upper case and a special character';
             error_ = true;
         }
 
@@ -108,7 +108,7 @@ const SignUp = (props) => {
                     value={state.firstname}
                     onChange={(event) => handleChange('firstname', event)}
                     type="firstname"
-                    className={`form-control ${error.firstname ? 'error': ''}`}
+                    className={`form-control ${error.firstname ? 'dirty-input': ''}`}
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder=""
@@ -116,13 +116,13 @@ const SignUp = (props) => {
                   {error.firstname && <p className="error">{error.firstname}</p>}
                 </div>
                 <div className="form-group">
-                  <label htmlFor="exampleInputEmail1">last Name</label>
+                  <label htmlFor="exampleInputEmail1">Last Name</label>
                   <input
                     value={state.lastname}
                     onChange={(event) => handleChange('lastname', event)}
                     
                     type="lastname"
-                    className={`form-control ${error.lastname ? 'error': ''}`}
+                    className={`form-control ${error.lastname ? 'dirty-input': ''}`}
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder=""
@@ -137,7 +137,7 @@ const SignUp = (props) => {
                     onChange={(event) => handleChange('email', event)}
                     
                     type="email"
-                    className={`form-control ${error.email ? 'error': ''}`}
+                    className={`form-control ${error.email ? 'dirty-input': ''}`}
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder=""
@@ -152,7 +152,7 @@ const SignUp = (props) => {
                     onChange={(event) => handleChange('password', event)}
                     
                     type="password"
-                    className={`form-control ${error.password ? 'error': ''}`}
+                    className={`form-control ${error.password ? 'dirty-input': ''}`}
                     id="exampleInputPassword1"
                     placeholder=" "
                   />
