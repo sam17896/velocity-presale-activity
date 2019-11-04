@@ -19,16 +19,20 @@ function App() {
 
   return (
     <div className={`container-fluid signin ${className}`}>
-      <div className="col-md-12  ">
-        <div className="col-md-6  full-height image-pan "></div>
+      <div className="row">
+      <div className="col-md-12">
+        <div className="col-md-6  full-height image-pan"></div>
 
         <div className="col-md-6  full-height data-pan">
-          <div className="row">
+          <div className="row logo">
             <a className="logo col-offset-1" href="#"></a>
+            </div>
+            <div className="row data-pan-inner">
             <SignIn onToggleView={onToggleView} className={className} />
             <SignUp onToggleView={onToggleView} className={className} />
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
