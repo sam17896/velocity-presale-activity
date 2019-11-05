@@ -22,9 +22,9 @@ body{
 }
 .container-fluid {
   width: 100%;
-  padding-right: 0px;
-  padding-left: 0px;
+  
 }
+ 
 
 .data-pan
 {
@@ -161,7 +161,9 @@ font-size: 12px
 .pan-switcher{
   margin-top:20px
 }
-
+.data-pan{
+  overflow: none
+}
 @media only screen and (max-width: 600px) {
   
   .data-pan-inner{
@@ -199,3 +201,19 @@ font-size: 12px
   }
 
 }
+@media(max-height: 800px) {
+  .data-pan-inner {
+    margin-top:40px;
+    
+    
+  }
+   
+   
+}
+
+ 
+
+ 
+
+
+ 
